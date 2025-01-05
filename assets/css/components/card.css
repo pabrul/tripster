@@ -1,0 +1,19 @@
+.card {
+    @apply overflow-hidden bg-white rounded-lg shadow-sm;
+  }
+  
+  .card-hover {
+    @apply transition-transform duration-200 hover:-translate-y-1 hover:shadow-md;
+  }
+  
+  .card-image {
+    @apply object-cover w-full;
+  }
+  
+  .card-content {
+    @apply p-4;
+  }
+  
+  .card-title {
+    @apply text-lg font-semibold;
+  }
