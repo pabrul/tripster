@@ -29,50 +29,12 @@
         <SkeletonDestinationGrid :count="3" />
       </div>
 
-      <!-- Botão de comparação -->
-      <div
-        v-if="selectedHotels.length > 0"
-        class="fixed bottom-0 left-0 right-0 px-4"
-      >
-        <div class="max-w-7xl mx-auto p-4">
-          <div
-            class="bg-white rounded-lg shadow-lg p-4 flex items-center justify-between"
-          >
-            <div>
-              <h4 class="font-semibold">Selected Hotels</h4>
-              <p class="text-sm text-gray-600">
-                {{ selectedHotels.length }}/3 hotels selected
-              </p>
-            </div>
-
-            <div class="flex items-center gap-4">
-              <Button
-                v-if="selectedHotels.length < 2"
-                variant="outline"
-                size="md"
-                disabled
-              >
-                Select at least 2 hotels
-              </Button>
-              <Button
-                v-else
-                @click="navigateToCompare"
-                variant="primary"
-                size="lg"
-                rounded
-              >
-                <template #icon>
-                  <Icon
-                    name="heroicons:arrows-right-left"
-                    class="w-5 h-5 mr-2"
-                  />
-                </template>
-                Compare {{ selectedHotels.length }} Hotels
-              </Button>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- Sticky Compare Bar -->
+      <CompareBar
+        :selected-hotels="selectedHotels"
+        :default-image="imageUrl"
+        @compare="navigateToCompare"
+      />
     </div>
 
     <!-- Estado de "Nenhum resultado encontrado" -->
@@ -106,6 +68,7 @@
 import { onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
+import CompareBar from "@/components/ui/Compare/CompareBar.vue";
 import DestinationCard from "@/components/ui/Destination/DestinationCard.vue";
 import SkeletonDestinationGrid from "@/components/base/Skeleton/SkeletonDestinationGrid.vue";
 import EmptyState from "@/components/base/EmptyState.vue";

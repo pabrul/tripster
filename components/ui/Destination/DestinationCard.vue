@@ -12,23 +12,54 @@
       ></div>
 
       <!-- Checkbox para comparação -->
-      <div
-        class="absolute top-4 right-4 z-10 p-2 bg-white/90 backdrop-blur-sm rounded-lg transform transition-all duration-300 shadow-lg"
-        @click.stop
-      >
-        <label class="flex items-center cursor-pointer">
-          <input
-            type="checkbox"
-            :checked="isSelected"
-            @change="handleCompare"
-            :disabled="isCompareDisabled && !isSelected"
-            class="sr-only peer"
+      <div class="absolute top-4 right-4 z-10" @click.stop>
+        <button
+          :class="[
+            'flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300',
+            'backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5',
+            isSelected
+              ? 'bg-blue-500 text-white'
+              : 'bg-white/90 text-gray-700 hover:bg-white',
+            isCompareDisabled && !isSelected
+              ? 'opacity-50 cursor-not-allowed hover:transform-none'
+              : 'cursor-pointer',
+          ]"
+          @click="handleCompare"
+          :disabled="isCompareDisabled && !isSelected"
+        >
+          <!-- Ícone -->
+          <Icon
+            :name="
+              isSelected ? 'heroicons:check-circle' : 'heroicons:plus-circle'
+            "
+            class="w-5 h-5"
+            :class="isSelected ? 'text-white' : 'text-blue-500'"
           />
-          <div
-            class="relative w-10 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:bg-blue-500 after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-5 after:w-5 after:transition-all"
-          ></div>
-          <span class="ml-2 text-sm font-medium">Compare</span>
-        </label>
+
+          <!-- Texto -->
+          <span class="text-sm font-medium whitespace-nowrap">
+            {{ isSelected ? "Added" : "Compare" }}
+          </span>
+
+          <!-- Contador (opcional) -->
+          <span
+            v-if="selectedHotels.length > 0"
+            :class="[
+              'text-xs font-bold ml-1',
+              isSelected ? 'text-white/90' : 'text-gray-500',
+            ]"
+          >
+            ({{ selectedHotels.length }}/3)
+          </span>
+        </button>
+
+        <!-- Tooltip para disabled -->
+        <div
+          v-if="isCompareDisabled && !isSelected"
+          class="absolute top-full mt-2 right-0 w-48 p-2 bg-gray-900 text-white text-xs rounded-lg shadow-xl"
+        >
+          Maximum 3 hotels can be compared
+        </div>
       </div>
 
       <!-- Imagem do hotel -->
@@ -110,5 +141,10 @@ const navigateToHotel = () => {
 <style scoped>
 .card {
   @apply cursor-pointer shadow-lg;
+}
+
+/* Animação suave para o tooltip */
+.absolute {
+  @apply transition-opacity duration-200;
 }
 </style>
