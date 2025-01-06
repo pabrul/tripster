@@ -1,0 +1,55 @@
+/* assets/css/components/alerts.css */
+.alert {
+  @apply fixed bottom-4 right-4 p-4 rounded-lg shadow-lg z-50;
+  @apply flex items-center gap-2 min-w-[300px];
+}
+
+.alert-success {
+  @apply bg-green-500 text-white;
+}
+
+.alert-error {
+  @apply bg-red-500 text-white;
+}
+
+.alert-warning {
+  @apply bg-yellow-500 text-white;
+}
+
+.alert-info {
+  @apply bg-blue-500 text-white;
+}
+
+.alert-icon {
+  @apply h-6 w-6 flex-shrink-0;
+}
+
+.alert-content {
+  @apply flex-1;
+}
+
+.alert-message {
+  @apply font-medium;
+}
+
+.alert-close {
+  @apply text-white/80 hover:text-white transition-colors flex-shrink-0;
+}
+
+/* Animações */
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
