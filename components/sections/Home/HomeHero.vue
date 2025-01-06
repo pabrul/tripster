@@ -1,3 +1,4 @@
+// components/sections/Home/HomeHero.vue
 <template>
   <div class="relative mb-12">
     <img
