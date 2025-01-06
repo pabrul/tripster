@@ -1,11 +1,12 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+// nuxt.config.ts
 export default defineNuxtConfig({
-  compatibilityDate: '2024-11-01',
+  compatibilityDate: "2024-11-01",
   devtools: { enabled: true },
-  modules: ['@nuxtjs/tailwindcss', '@nuxt/icon'],
-  css: ['~/assets/css/tailwind.css'],
+  modules: ["@nuxtjs/tailwindcss", "@nuxt/icon", "@pinia/nuxt"],
+  css: ["~/assets/css/tailwind.css"],
   tailwindcss: {
-    cssPath: '~/assets/css/tailwind.css',
-    configPath: 'tailwind.config.js'
+    cssPath: "~/assets/css/tailwind.css",
+    configPath: "tailwind.config.js",
   },
-})
+});
