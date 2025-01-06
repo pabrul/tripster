@@ -14,25 +14,25 @@
 </template>
 
 <script setup>
-import Input from '@/components/base/Input.vue'
+import Input from "@/components/base/Input.vue";
 
 defineProps({
   modelValue: [String, Number],
   label: String,
   type: {
     type: String,
-    default: 'text'
+    default: "text",
   },
   placeholder: String,
   size: {
     type: String,
-    default: 'md'
+    default: "md",
   },
   bordered: {
     type: Boolean,
-    default: false
-  }
-})
+    default: false,
+  },
+});
 
-defineEmits(['update:modelValue'])
+defineEmits(["update:modelValue"]);
 </script>

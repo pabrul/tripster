@@ -18,20 +18,20 @@
 </template>
 
 <script setup>
-import SearchForm from '@/components/ui/Search/SearchForm.vue'
+import SearchForm from "@/components/ui/Search/SearchForm.vue";
 
 defineProps({
   heroImage: {
     type: String,
-    required: true
+    required: true,
   },
   title: {
     type: String,
-    default: 'Book your stay with Tripster'
+    default: "Book your stay with Tripster",
   },
   subtitle: {
     type: String,
-    default: '1,480,086 rooms around the world are waiting for you!'
-  }
-})
+    default: "1,480,086 rooms around the world are waiting for you!",
+  },
+});
 </script>

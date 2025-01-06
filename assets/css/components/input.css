@@ -1,31 +1,32 @@
 .input {
-    @apply w-full px-4 py-2 transition-colors duration-200 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
-  }
-  
-  .input-sm {
-    @apply px-3 py-1.5 text-sm;
-  }
-  
-  .input-md {
-    @apply px-4 py-2 text-base;
-  }
-  
-  .input-lg {
-    @apply px-6 py-3 text-lg;
-  }
-  
-  .input-label {
-    @apply block mb-1 text-sm font-medium text-gray-700;
-  }
-  
-  .input-error {
-    @apply border-red-500 focus:ring-red-500 focus:border-red-500;
-  }
-  
-  .input-success {
-    @apply border-green-500 focus:ring-green-500 focus:border-green-500;
-  }
-  
-  .input-disabled, .input[disabled] {
-    @apply opacity-50 cursor-not-allowed bg-gray-50;
-  }
+  @apply w-full px-4 py-2 transition-colors duration-200 bg-white border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500;
+}
+
+.input-sm {
+  @apply px-3 py-1.5 text-sm;
+}
+
+.input-md {
+  @apply px-4 py-2 text-base;
+}
+
+.input-lg {
+  @apply px-6 py-3 text-lg;
+}
+
+.input-label {
+  @apply block mb-1 text-sm font-medium text-gray-700;
+}
+
+.input-error {
+  @apply border-red-500 focus:ring-red-500 focus:border-red-500;
+}
+
+.input-success {
+  @apply border-green-500 focus:ring-green-500 focus:border-green-500;
+}
+
+.input-disabled,
+.input[disabled] {
+  @apply opacity-50 cursor-not-allowed bg-gray-50;
+}

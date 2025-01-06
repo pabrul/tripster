@@ -1,8 +1,5 @@
 <template>
-  <a 
-    :href="href" 
-    class="text-gray-600 hover:text-gray-900"
-  >
+  <a :href="href" class="text-gray-600 hover:text-gray-900">
     <slot />
   </a>
 </template>
@@ -11,7 +8,7 @@
 defineProps({
   href: {
     type: String,
-    default: '#'
-  }
-})
+    default: "#",
+  },
+});
 </script>

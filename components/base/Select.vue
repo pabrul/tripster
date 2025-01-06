@@ -5,16 +5,15 @@
       <span v-if="required" class="text-red-500">*</span>
     </label>
     <select
-      :class="[
-        'select',
-        `select-${size}`
-      ]"
+      :class="['select', `select-${size}`]"
       :value="modelValue"
       :disabled="disabled"
       @change="$emit('update:modelValue', $event.target.value)"
       v-bind="$attrs"
     >
-      <option v-if="placeholder" value="" disabled selected>{{ placeholder }}</option>
+      <option v-if="placeholder" value="" disabled selected>
+        {{ placeholder }}
+      </option>
       <slot />
     </select>
   </div>
@@ -24,17 +23,17 @@
 defineProps({
   modelValue: {
     type: [String, Number],
-    default: ''
+    default: "",
   },
   label: String,
   size: {
     type: String,
-    default: 'md'
+    default: "md",
   },
   placeholder: String,
   required: Boolean,
-  disabled: Boolean
-})
+  disabled: Boolean,
+});
 
-defineEmits(['update:modelValue'])
+defineEmits(["update:modelValue"]);
 </script>

@@ -9,7 +9,7 @@
         'input',
         `input-${size}`,
         { 'input-error': error },
-        { 'input-success': success }
+        { 'input-success': success },
       ]"
       :type="type"
       :value="modelValue"
@@ -26,23 +26,23 @@
 defineProps({
   modelValue: {
     type: [String, Number],
-    default: ''
+    default: "",
   },
   label: String,
   type: {
     type: String,
-    default: 'text'
+    default: "text",
   },
   size: {
     type: String,
-    default: 'md'
+    default: "md",
   },
   placeholder: String,
   required: Boolean,
   disabled: Boolean,
   error: String,
-  success: Boolean
-})
+  success: Boolean,
+});
 
-defineEmits(['update:modelValue'])
+defineEmits(["update:modelValue"]);
 </script>
