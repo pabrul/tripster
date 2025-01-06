@@ -75,8 +75,8 @@ const isMenuOpen = ref(false);
 
 const navigationItems = [
   { label: "Home", path: "/" },
-  { label: "Search", path: "/search" },
-  { label: "Compare", path: "/compare" },
-  { label: "About", path: "/about" },
+  { label: "Search", path: "/" },
+  { label: "Compare", path: "/" },
+  { label: "About", path: "/" },
 ];
 </script>

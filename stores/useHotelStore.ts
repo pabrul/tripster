@@ -12,57 +12,57 @@ export const useHotelStore = defineStore("hotel", () => {
   const isLoadingPopular = ref(false);
   const searchPerformed = ref(false);
 
+  const PAGE_SIZE = 6;
+  const currentPage = ref(1);
+  const isLoadingMore = ref(false);
+
+  // Computed Properties
   const hotelsSearched = computed(() => searchPerformed.value);
-  const displayedHotels = computed(() => {
+  const allHotels = computed(() => {
     if (searchPerformed.value) {
       return hotels.value;
     }
     return popularDestinations.value;
   });
 
+  const displayedHotels = computed(() => {
+    const end = currentPage.value * PAGE_SIZE;
+    return allHotels.value.slice(0, end);
+  });
+
+  const hasMoreHotels = computed(() => {
+    return displayedHotels.value.length < allHotels.value.length;
+  });
+
+  const loadMore = async () => {
+    if (isLoadingMore.value || !hasMoreHotels.value) return;
+
+    isLoadingMore.value = true;
+    await new Promise((resolve) => setTimeout(resolve, 500)); // Simulação de delay
+    currentPage.value++;
+    isLoadingMore.value = false;
+  };
+
+  const resetPagination = () => {
+    currentPage.value = 1;
+    isLoadingMore.value = false;
+  };
+
   const fetchPopularDestinations = async () => {
-    if (isLoadingPopular.value || popularDestinations.value.length > 0) {
-      return;
-    }
+    if (isLoadingPopular.value || popularDestinations.value.length > 0) return;
 
     isLoadingPopular.value = true;
-    console.log("Started loading popular destinations");
+    resetPagination();
 
     try {
       const response = await $fetch<Hotel[]>("/api/hotels");
-      console.log("API response:", response);
-
-      if (!response || !Array.isArray(response)) {
-        throw new Error("Invalid API response");
-      }
-
-      // Transformando os dados para corresponder à interface Hotel
-      const popularHotels = response
-        .filter((hotel) => hotel.popular === true)
-        .map((hotel) => ({
-          id: hotel.id,
-          name: hotel.name,
-          location: hotel.location,
-          price: hotel.price,
-          rating: hotel.rating,
-          large: hotel.large,
-          popular: hotel.popular,
-          image: hotel.image || undefined, // Adicionando image como opcional
-        }));
-
-      console.log("Filtered popular hotels:", popularHotels);
-      popularDestinations.value = popularHotels;
-
-      if (popularHotels.length === 0) {
-        console.warn("No popular hotels found");
-        alertStore.showAlert("No popular destinations found.", "warning");
-      }
+      // Aqui está alteração importante - filtramos apenas para destinos populares
+      popularDestinations.value = response.filter((hotel) => hotel.popular);
     } catch (error) {
-      console.error("Error fetching popular destinations:", error);
+      console.error(error);
       alertStore.showAlert("Failed to load popular destinations.", "error");
       popularDestinations.value = [];
     } finally {
-      console.log("Finished loading popular destinations");
       isLoadingPopular.value = false;
     }
   };
@@ -70,29 +70,16 @@ export const useHotelStore = defineStore("hotel", () => {
   const fetchHotels = async (filters: Record<string, any>) => {
     isLoading.value = true;
     searchPerformed.value = true;
+    resetPagination();
 
     try {
       const response = await $fetch<Hotel[]>("/api/hotels", {
         params: filters,
       });
-
-      // Transformando os dados para corresponder à interface Hotel
-      hotels.value = response.map((hotel) => ({
-        id: hotel.id,
-        name: hotel.name,
-        location: hotel.location,
-        price: hotel.price,
-        rating: hotel.rating,
-        large: hotel.large,
-        popular: hotel.popular,
-        image: hotel.image || undefined,
-      }));
-
-      if (hotels.value.length === 0) {
-        alertStore.showAlert("No results found.", "error");
-      }
+      // Aqui NÃO filtramos - mostramos todos os hotéis retornados da busca
+      hotels.value = response;
     } catch (error) {
-      console.error("Error fetching hotels:", error);
+      console.error(error);
       alertStore.showAlert("Failed to fetch hotels.", "error");
       hotels.value = [];
     } finally {
@@ -111,10 +98,13 @@ export const useHotelStore = defineStore("hotel", () => {
     popularDestinations,
     isLoading,
     isLoadingPopular,
+    isLoadingMore,
+    hasMoreHotels,
     hotelsSearched,
     displayedHotels,
     fetchHotels,
     fetchPopularDestinations,
     resetSearch,
+    loadMore,
   };
 });

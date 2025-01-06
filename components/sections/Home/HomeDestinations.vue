@@ -25,6 +25,10 @@
         />
       </div>
 
+      <div v-if="isLoadingMore" class="col-span-12 mt-8">
+        <SkeletonDestinationGrid :count="3" />
+      </div>
+
       <!-- Botão de comparação -->
       <div
         v-if="selectedHotels.length > 0"
@@ -99,7 +103,7 @@
 </template>
 
 <script setup>
-import { onMounted } from "vue";
+import { onMounted, onUnmounted } from "vue";
 import { useRouter } from "vue-router";
 import { storeToRefs } from "pinia";
 import DestinationCard from "@/components/ui/Destination/DestinationCard.vue";
@@ -114,21 +118,44 @@ const router = useRouter();
 const hotelStore = useHotelStore();
 const compareStore = useCompareStore();
 
-const { displayedHotels, hotelsSearched, isLoading, isLoadingPopular } =
-  storeToRefs(hotelStore);
-const { fetchPopularDestinations, resetSearch } = hotelStore;
-
 const { selectedHotels } = storeToRefs(compareStore);
+
+const {
+  displayedHotels,
+  hotelsSearched,
+  isLoading,
+  isLoadingPopular,
+  isLoadingMore,
+  hasMoreHotels,
+} = storeToRefs(hotelStore);
+
+const { fetchPopularDestinations, resetSearch, loadMore } = hotelStore;
 
 const navigateToCompare = () => {
   const hotelIds = selectedHotels.value.map((h) => h.id).join(",");
   router.push(`/compare?hotels=${hotelIds}`);
 };
 
+const handleScroll = () => {
+  // Removemos a verificação do isLoadingMore aqui porque queremos que ela aconteça dentro do if
+  if (!hasMoreHotels?.value) return;
+
+  const scrolledToBottom =
+    window.innerHeight + window.scrollY >=
+    document.documentElement.scrollHeight - 200;
+
+  if (scrolledToBottom && !isLoadingMore.value) {
+    // Verificamos isLoadingMore aqui
+    loadMore();
+  }
+};
+
 const imageUrl =
   "https://bynder.onthebeach.co.uk/cdn-cgi/image/width=1400,quality=70,fit=cover,format=auto,height=933/m/17deb1c9d160d0eb/original/Mercury-Hotel.jpg";
 
 onMounted(async () => {
+  window.addEventListener("scroll", handleScroll);
+
   try {
     console.log("Fetching popular destinations...");
     await fetchPopularDestinations();
@@ -136,5 +163,9 @@ onMounted(async () => {
   } catch (error) {
     console.error("Error loading popular destinations:", error);
   }
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
 });
 </script>
