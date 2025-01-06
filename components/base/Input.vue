@@ -1,3 +1,4 @@
+// components/base/Input.vue
 <template>
   <div>
     <label v-if="label" :class="['input-label', { 'text-red-500': error }]">

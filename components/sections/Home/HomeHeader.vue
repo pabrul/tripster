@@ -1,3 +1,4 @@
+// components/sections/Home/HomeHeader.vue
 <template>
   <header class="flex justify-between items-center mb-8">
     <h1 class="text-xl font-bold">Tripster</h1>

@@ -1,20 +1,12 @@
 // components/sections/Home/index.vue
 <template>
-  <div class="min-h-screen bg-blue-600 p-4">
-    <div class="max-w-7xl mx-auto bg-white rounded-3xl p-6">
-      <!-- Header Organism -->
-      <HomeHeader />
-
-      <!-- Hero Organism -->
-      <HomeHero
-        :hero-image="heroImage"
-        :title="heroTitle"
-        :subtitle="heroSubtitle"
-      />
-
-      <!-- Destinations Organism -->
-      <HomeDestinations />
-    </div>
+  <div class="">
+    <HomeHero
+      :hero-image="heroImage"
+      :title="heroTitle"
+      :subtitle="heroSubtitle"
+    />
+    <HomeDestinations />
   </div>
 </template>
 
