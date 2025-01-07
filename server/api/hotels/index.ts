@@ -10,6 +10,7 @@ export default defineEventHandler((event) => {
       rating: 4.5,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
     },
     {
       id: 2,
@@ -19,6 +20,7 @@ export default defineEventHandler((event) => {
       rating: 4.8,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
     },
     {
       id: 3,
@@ -28,6 +30,7 @@ export default defineEventHandler((event) => {
       rating: 4.2,
       large: false,
       popular: false,
+      image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
     },
     {
       id: 4,
@@ -37,6 +40,7 @@ export default defineEventHandler((event) => {
       rating: 4.6,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
     },
     {
       id: 5,
@@ -46,6 +50,7 @@ export default defineEventHandler((event) => {
       rating: 4.9,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
     },
     {
       id: 6,
@@ -55,6 +60,8 @@ export default defineEventHandler((event) => {
       rating: 4.4,
       large: true,
       popular: false,
+      image:
+        "https://images.pexels.com/photos/1112496/pexels-photo-1112496.jpeg",
     },
     {
       id: 7,
@@ -64,6 +71,7 @@ export default defineEventHandler((event) => {
       rating: 4.7,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
     },
     {
       id: 8,
@@ -73,6 +81,7 @@ export default defineEventHandler((event) => {
       rating: 4.6,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
     },
     {
       id: 9,
@@ -82,6 +91,7 @@ export default defineEventHandler((event) => {
       rating: 4.1,
       large: false,
       popular: false,
+      image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
     },
     {
       id: 10,
@@ -91,6 +101,7 @@ export default defineEventHandler((event) => {
       rating: 4.5,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
     },
     {
       id: 11,
@@ -100,6 +111,7 @@ export default defineEventHandler((event) => {
       rating: 4.7,
       large: false,
       popular: false,
+      image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
     },
     {
       id: 12,
@@ -109,6 +121,7 @@ export default defineEventHandler((event) => {
       rating: 4.9,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
     },
     {
       id: 13,
@@ -118,6 +131,7 @@ export default defineEventHandler((event) => {
       rating: 4.7,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
     },
     {
       id: 14,
@@ -127,6 +141,7 @@ export default defineEventHandler((event) => {
       rating: 4.6,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
     },
     {
       id: 15,
@@ -136,6 +151,7 @@ export default defineEventHandler((event) => {
       rating: 4.8,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
     },
     {
       id: 16,
@@ -145,6 +161,7 @@ export default defineEventHandler((event) => {
       rating: 4.5,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
     },
     {
       id: 17,
@@ -154,6 +171,7 @@ export default defineEventHandler((event) => {
       rating: 4.7,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
     },
     {
       id: 18,
@@ -163,6 +181,7 @@ export default defineEventHandler((event) => {
       rating: 4.8,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
     },
     {
       id: 19,
@@ -172,6 +191,7 @@ export default defineEventHandler((event) => {
       rating: 4.3,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
     },
     {
       id: 20,
@@ -181,6 +201,7 @@ export default defineEventHandler((event) => {
       rating: 4.4,
       large: true,
       popular: true,
+      image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
     },
     {
       id: 21,
@@ -190,6 +211,7 @@ export default defineEventHandler((event) => {
       rating: 4.6,
       large: false,
       popular: true,
+      image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
     },
   ];
 
