@@ -20,7 +20,7 @@
         <DestinationCard
           :hotel="hotel"
           :name="hotel.name"
-          :image="hotel.image || imageUrl"
+          :image="hotel.image"
           :large="hotel.large || false"
         />
       </div>
