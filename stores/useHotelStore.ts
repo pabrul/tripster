@@ -15,6 +15,7 @@ export const useHotelStore = defineStore("hotel", () => {
   const PAGE_SIZE = 6;
   const currentPage = ref(1);
   const isLoadingMore = ref(false);
+  const sortBy = ref("price_asc");
 
   // Computed Properties
   const hotelsSearched = computed(() => searchPerformed.value);
@@ -32,6 +33,14 @@ export const useHotelStore = defineStore("hotel", () => {
 
   const hasMoreHotels = computed(() => {
     return displayedHotels.value.length < allHotels.value.length;
+  });
+
+  const sortedHotels = computed(() => {
+    return [...hotels.value].sort((a, b) => {
+      return sortBy.value === "price_asc"
+        ? a.price - b.price
+        : b.price - a.price;
+    });
   });
 
   const loadMore = async () => {
@@ -105,6 +114,7 @@ export const useHotelStore = defineStore("hotel", () => {
     fetchHotels,
     fetchPopularDestinations,
     resetSearch,
+    sortedHotels,
     loadMore,
   };
 });

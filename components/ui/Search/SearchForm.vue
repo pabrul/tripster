@@ -106,13 +106,27 @@ const checkIn = ref("");
 const checkOut = ref("");
 const guests = ref(1);
 
+const validateDates = () => {
+  if (!checkIn.value || !checkOut.value) {
+    alertStore.showAlert("Select both dates", "error");
+    return false;
+  }
+  if (new Date(checkIn.value) >= new Date(checkOut.value)) {
+    alertStore.showAlert("Invalid date range", "error");
+    return false;
+  }
+  return true;
+};
+
 const handleSearch = async () => {
   if (!location.value) {
     alertStore.showAlert("Please enter a location to search.", "error");
     return;
   }
 
-  console.log("Searching with paraams:", {
+  if (!validateDates()) return;
+
+  console.log("Searching with params:", {
     location: location.value,
     checkIn: checkIn.value,
     checkOut: checkOut.value,

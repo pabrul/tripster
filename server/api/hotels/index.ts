@@ -11,8 +11,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg",
-      checkIn: "2024-01-15",
-      checkOut: "2024-01-20",
+      checkIn: "2025-01-15",
+      checkOut: "2025-01-20",
     },
     {
       id: 2,
@@ -23,8 +23,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
-      checkIn: "2024-02-10",
-      checkOut: "2024-02-15",
+      checkIn: "2025-02-10",
+      checkOut: "2025-02-15",
     },
     {
       id: 3,
@@ -35,8 +35,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: false,
       image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
-      checkIn: "2024-03-05",
-      checkOut: "2024-03-10",
+      checkIn: "2025-03-05",
+      checkOut: "2025-03-10",
     },
     {
       id: 4,
@@ -47,8 +47,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
-      checkIn: "2024-01-25",
-      checkOut: "2024-01-30",
+      checkIn: "2025-01-25",
+      checkOut: "2025-01-30",
     },
     {
       id: 5,
@@ -59,8 +59,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
-      checkIn: "2024-02-20",
-      checkOut: "2024-02-25",
+      checkIn: "2025-02-20",
+      checkOut: "2025-02-25",
     },
     {
       id: 6,
@@ -72,8 +72,8 @@ export default defineEventHandler((event) => {
       popular: false,
       image:
         "https://images.pexels.com/photos/1112496/pexels-photo-1112496.jpeg",
-      checkIn: "2024-03-01",
-      checkOut: "2024-03-06",
+      checkIn: "2025-03-01",
+      checkOut: "2025-03-06",
     },
     {
       id: 7,
@@ -84,8 +84,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
-      checkIn: "2024-04-10",
-      checkOut: "2024-04-15",
+      checkIn: "2025-04-10",
+      checkOut: "2025-04-15",
     },
     {
       id: 8,
@@ -96,8 +96,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
-      checkIn: "2024-05-05",
-      checkOut: "2024-05-10",
+      checkIn: "2025-05-05",
+      checkOut: "2025-05-10",
     },
     {
       id: 9,
@@ -108,8 +108,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: false,
       image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
-      checkIn: "2024-02-12",
-      checkOut: "2024-02-17",
+      checkIn: "2025-02-12",
+      checkOut: "2025-02-17",
     },
     {
       id: 10,
@@ -120,8 +120,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
-      checkIn: "2024-03-18",
-      checkOut: "2024-03-23",
+      checkIn: "2025-03-18",
+      checkOut: "2025-03-23",
     },
     {
       id: 11,
@@ -132,8 +132,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: false,
       image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
-      checkIn: "2024-04-01",
-      checkOut: "2024-04-06",
+      checkIn: "2025-04-01",
+      checkOut: "2025-04-06",
     },
     {
       id: 12,
@@ -144,8 +144,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
-      checkIn: "2024-02-25",
-      checkOut: "2024-03-01",
+      checkIn: "2025-02-25",
+      checkOut: "2025-03-01",
     },
     {
       id: 13,
@@ -156,8 +156,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
-      checkIn: "2024-01-10",
-      checkOut: "2024-01-15",
+      checkIn: "2025-01-10",
+      checkOut: "2025-01-15",
     },
     {
       id: 14,
@@ -168,8 +168,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
-      checkIn: "2024-03-10",
-      checkOut: "2024-03-15",
+      checkIn: "2025-03-10",
+      checkOut: "2025-03-15",
     },
     {
       id: 15,
@@ -180,8 +180,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
-      checkIn: "2024-04-15",
-      checkOut: "2024-04-20",
+      checkIn: "2025-04-15",
+      checkOut: "2025-04-20",
     },
     {
       id: 16,
@@ -192,8 +192,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
-      checkIn: "2024-05-01",
-      checkOut: "2024-05-06",
+      checkIn: "2025-05-01",
+      checkOut: "2025-05-06",
     },
     {
       id: 17,
@@ -204,8 +204,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/338515/pexels-photo-338515.jpeg",
-      checkIn: "2024-03-22",
-      checkOut: "2024-03-27",
+      checkIn: "2025-03-22",
+      checkOut: "2025-03-27",
     },
     {
       id: 18,
@@ -216,8 +216,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/338504/pexels-photo-338504.jpeg",
-      checkIn: "2024-02-05",
-      checkOut: "2024-02-10",
+      checkIn: "2025-02-05",
+      checkOut: "2025-02-10",
     },
     {
       id: 19,
@@ -228,8 +228,8 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg",
-      checkIn: "2024-01-20",
-      checkOut: "2024-01-25",
+      checkIn: "2025-01-20",
+      checkOut: "2025-01-25",
     },
     {
       id: 20,
@@ -240,8 +240,8 @@ export default defineEventHandler((event) => {
       large: true,
       popular: true,
       image: "https://images.pexels.com/photos/358485/pexels-photo-358485.jpeg",
-      checkIn: "2024-02-18",
-      checkOut: "2024-02-23",
+      checkIn: "2025-02-18",
+      checkOut: "2025-02-23",
     },
     {
       id: 21,
@@ -252,24 +252,35 @@ export default defineEventHandler((event) => {
       large: false,
       popular: true,
       image: "https://images.pexels.com/photos/358483/pexels-photo-358483.jpeg",
-      checkIn: "2024-03-12",
-      checkOut: "2024-03-17",
+      checkIn: "2025-03-12",
+      checkOut: "2025-03-17",
     },
   ];
 
   // Pega os parâmetros da query
   const query = getQuery(event);
   const searchLocation = query.location?.toString().toLowerCase();
+  const checkIn = query.checkIn ? new Date(query.checkIn.toString()) : null;
+  const checkOut = query.checkOut ? new Date(query.checkOut.toString()) : null;
 
-  // Se não houver parâmetros de busca, retorna todos os hotéis
   if (!searchLocation) {
     return hotels;
   }
 
-  // Filtra os hotéis baseado na localização
-  return hotels.filter(
-    (hotel) =>
+  return hotels.filter((hotel) => {
+    const locationMatch =
       hotel.name.toLowerCase().includes(searchLocation) ||
-      hotel.location.toLowerCase().includes(searchLocation)
-  );
+      hotel.location.toLowerCase().includes(searchLocation);
+
+    if (!checkIn || !checkOut) {
+      return locationMatch;
+    }
+
+    const hotelCheckIn = new Date(hotel.checkIn);
+    const hotelCheckOut = new Date(hotel.checkOut);
+
+    return (
+      locationMatch && hotelCheckIn <= checkOut && hotelCheckOut >= checkIn
+    );
+  });
 });
