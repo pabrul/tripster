@@ -60,6 +60,7 @@
 
       <!-- Imagem do hotel -->
       <img
+        loading="lazy"
         :src="image"
         :alt="`Imagem do hotel ${name}`"
         class="w-full h-full object-cover"

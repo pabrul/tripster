@@ -111,8 +111,8 @@ const errors = reactive({
 });
 
 const form = reactive({
-  email: "",
-  password: "",
+  email: "john@example.com",
+  password: "123456",
   rememberMe: false,
 });
 
