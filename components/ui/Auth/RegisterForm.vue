@@ -1,6 +1,15 @@
-// components/ui/Auth/LoginForm.vue
+// components/ui/Auth/RegisterForm.vue
 <template>
   <form @submit.prevent="handleSubmit" class="space-y-4">
+    <!-- Name Input -->
+    <Input
+      v-model="form.name"
+      type="text"
+      placeholder="Your full name"
+      :error="errors.name"
+      autocomplete="name"
+    />
+
     <!-- Email Input -->
     <Input
       v-model="form.email"
@@ -8,17 +17,15 @@
       placeholder="your@email.com"
       :error="errors.email"
       autocomplete="email"
-      class="w-full"
     />
 
     <!-- Password Input -->
     <Input
       v-model="form.password"
       :type="showPassword ? 'text' : 'password'"
-      placeholder="Enter your password"
+      placeholder="Create a password"
       :error="errors.password"
-      autocomplete="current-password"
-      class="w-full"
+      autocomplete="new-password"
     >
       <template #icon>
         <button
@@ -34,50 +41,24 @@
       </template>
     </Input>
 
-    <!-- Remember Me & Forgot -->
-    <div class="flex justify-between items-center text-sm">
-      <label class="flex items-center gap-2">
-        <input
-          v-model="form.rememberMe"
-          type="checkbox"
-          class="w-4 h-4 rounded text-blue-600"
-        />
-        Remember me
-      </label>
-      <a href="#" class="text-blue-600">Forgot password?</a>
+    <div class="text-sm text-gray-600">
+      <p>Password must be at least 6 characters long</p>
     </div>
 
-    <!-- Login Button -->
+    <!-- Register Button -->
     <Button
       type="submit"
       variant="primary"
       class="w-full !bg-blue-600"
       :loading="isLoading"
     >
-      Sign in
+      Create account
     </Button>
 
-    <!-- Divider -->
-    <div class="flex items-center gap-3 my-4">
-      <div class="h-px bg-gray-200 flex-1"></div>
-      <span class="text-sm text-gray-500">Or continue with</span>
-      <div class="h-px bg-gray-200 flex-1"></div>
-    </div>
-
-    <!-- Social Login -->
-    <div class="grid grid-cols-2 gap-3">
-      <Button variant="outline" class="border border-gray-300">
-        <Icon name="logos:google-icon" class="w-4 h-4 mr-2" /> Google
-      </Button>
-      <Button variant="outline" class="border border-gray-300">
-        <Icon name="logos:github-icon" class="w-4 h-4 mr-2" /> GitHub
-      </Button>
-    </div>
-
-    <!-- Sign Up -->
+    <!-- Sign In Link -->
     <div class="text-sm text-center text-gray-600 mt-6">
-      Don't have an account?
-      <a href="#" class="text-blue-600">Sign up now</a>
+      Already have an account?
+      <NuxtLink to="/login" class="text-blue-600">Sign in</NuxtLink>
     </div>
   </form>
 </template>
@@ -96,22 +77,29 @@ const alertStore = useAlertStore();
 
 const showPassword = ref(false);
 const isLoading = ref(false);
-const errors = reactive({
+
+const form = reactive({
+  name: "",
   email: "",
   password: "",
 });
 
-const form = reactive({
+const errors = reactive({
+  name: "",
   email: "",
   password: "",
-  rememberMe: false,
 });
 
 const validateForm = () => {
   let isValid = true;
-  errors.email = "";
-  errors.password = "";
 
+  // Name validation
+  if (!form.name) {
+    errors.name = "Name is required";
+    isValid = false;
+  }
+
+  // Email validation
   if (!form.email) {
     errors.email = "Email is required";
     isValid = false;
@@ -120,6 +108,7 @@ const validateForm = () => {
     isValid = false;
   }
 
+  // Password validation
   if (!form.password) {
     errors.password = "Password is required";
     isValid = false;
@@ -131,7 +120,6 @@ const validateForm = () => {
   return isValid;
 };
 
-// No LoginForm.vue, atualizar handleSubmit:
 const handleSubmit = async () => {
   if (!validateForm()) return;
 
@@ -139,26 +127,17 @@ const handleSubmit = async () => {
     isLoading.value = true;
 
     const response = await $fetch("/api/auth/users", {
-      method: "POST",
-      body: {
-        email: form.email,
-        password: form.password,
-      },
+      method: "PUT",
+      body: form,
     });
 
     authStore.login(response.user, response.token);
-    alertStore.showAlert("Welcome back!", "success");
-
-    const redirect = router.currentRoute.value.query.redirect as string;
-    router.push(redirect || "/");
-  } catch (error) {
-    alertStore.showAlert("Invalid credentials", "error");
+    alertStore.showAlert("Account created successfully!", "success");
+    router.push("/");
+  } catch (error: any) {
+    alertStore.showAlert(error.message || "Registration failed", "error");
   } finally {
     isLoading.value = false;
   }
-};
-
-const socialLogin = (provider: "google" | "github") => {
-  alertStore.showAlert(`${provider} login coming soon!`, "info");
 };
 </script>
