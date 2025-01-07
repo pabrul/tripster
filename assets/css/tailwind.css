@@ -7,3 +7,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.card {
+  @apply cursor-pointer shadow-lg;
+}
+
+/* Animação suave para o tooltip */
+.absolute {
+  @apply transition-opacity duration-200;
+}

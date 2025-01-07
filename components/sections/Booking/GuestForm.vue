@@ -1,7 +1,7 @@
 <template>
   <div class="space-y-4">
     <h3 class="text-lg font-semibold">Guest Information</h3>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <Input
         v-model="form.firstName"
         label="First Name"

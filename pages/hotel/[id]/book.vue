@@ -5,8 +5,12 @@
         title="Book Your Stay"
         subtitle="Complete your reservation"
       />
-      <HotelSummary :hotel="hotel" :defaultImage="defaultImageUrl" />
-      <div class="bg-white rounded-lg shadow-sm p-6">
+      <HotelSummary
+        :hotel="hotel"
+        :defaultImage="defaultImageUrl"
+        :available="available"
+      />
+      <div class="bg-white rounded-lg shadow-sm p-6 border border-blue-600">
         <form @submit.prevent="handleBooking" class="space-y-6">
           <GuestForm :form="form" :errors="errors" />
           <StayDetails :form="form" :errors="errors" />
@@ -37,7 +41,7 @@ import { useRouter, useRoute } from "vue-router";
 import { useAlertStore } from "~/stores/useAlertStore";
 import { useAuthStore } from "~/stores/auth";
 import { useBooking } from "~/composables/useBooking";
-import type { Hotel } from "~/types/hotel";
+import type { Hotel, HotelFeature } from "~/types/hotel";
 import type { BookingForm, BookingErrors } from "~/types/booking";
 import Button from "@/components/base/Button.vue";
 
@@ -57,6 +61,11 @@ const { validateForm, calculateNights } = useBooking();
 const hotel = ref<Hotel | null>(null);
 const isLoading = ref(false);
 const defaultImageUrl = "https://example.com/default.jpg";
+
+const available = ref<HotelFeature>({
+  name: "availability",
+  available: Math.random() > 0.5, // Gera true ou false aleatoriamente
+});
 
 const form = reactive<BookingForm>({
   firstName: authStore.user?.name?.split(" ")[0] || "",

@@ -1,5 +1,6 @@
 <template>
   <div class="space-y-4">
+    <hr class="border-blue-600" />
     <h3 class="text-lg font-semibold">Payment Details</h3>
     <Input
       v-model="form.cardNumber"
@@ -8,7 +9,7 @@
       required
       :error="errors.cardNumber"
     />
-    <div class="grid grid-cols-3 gap-4">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-3">
       <Input
         v-model="form.expMonth"
         label="Month"
@@ -31,6 +32,7 @@
         :error="errors.cvv"
       />
     </div>
+    <hr class="border-blue-600" />
   </div>
 </template>
 

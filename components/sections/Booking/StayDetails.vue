@@ -1,7 +1,9 @@
 <template>
   <div class="space-y-4">
+    <hr class="border-blue-600" />
+
     <h3 class="text-lg font-semibold">Stay Details</h3>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <Input
         v-model="form.checkIn"
         type="date"
@@ -17,7 +19,7 @@
         :error="errors.checkOut"
       />
     </div>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
       <Input
         v-model="form.guests"
         type="number"
