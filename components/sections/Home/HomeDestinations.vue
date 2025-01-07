@@ -75,9 +75,10 @@ import EmptyState from "@/components/base/EmptyState.vue";
 import Button from "@/components/base/Button.vue";
 import { useHotelStore } from "@/stores/useHotelStore";
 import { useCompareStore } from "~/stores/useCompareStore";
+import { useAlertStore } from "@/stores/useAlertStore";
 
 const router = useRouter();
-
+const alertStore = useAlertStore();
 const hotelStore = useHotelStore();
 const compareStore = useCompareStore();
 
@@ -95,8 +96,21 @@ const {
 const { fetchPopularDestinations, resetSearch, loadMore } = hotelStore;
 
 const navigateToCompare = () => {
-  const hotelIds = selectedHotels.value.map((h) => h.id).join(",");
-  router.push(`/compare?hotels=${hotelIds}`);
+  const authStore = useAuthStore();
+
+  if (!authStore.token) {
+    router.push(
+      `/login?redirect=/compare?hotels=${selectedHotels.value
+        .map((h) => h.id)
+        .join(",")}`
+    );
+    alertStore.showAlert("Please login to compare hotels", "info");
+    return;
+  }
+
+  router.push(
+    `/compare?hotels=${selectedHotels.value.map((h) => h.id).join(",")}`
+  );
 };
 
 const handleScroll = () => {
