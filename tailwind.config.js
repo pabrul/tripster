@@ -2,8 +2,12 @@
 export default {
   content: [],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Montserrat", "ui-sans-serif", "system-ui"],
+        serif: ["Merriweather", "ui-serif", "Georgia"],
+      },
+    },
   },
   plugins: [],
-}
-
+};
