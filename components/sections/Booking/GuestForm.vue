@@ -15,14 +15,21 @@
         :error="errors.lastName"
       />
     </div>
-    <Input
-      v-model="form.email"
-      type="email"
-      label="Email"
-      required
-      :error="errors.email"
-    />
-    <Input v-model="form.phone" label="Phone" required :error="errors.phone" />
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <Input
+        v-model="form.email"
+        type="email"
+        label="Email"
+        required
+        :error="errors.email"
+      />
+      <Input
+        v-model="form.phone"
+        label="Phone"
+        required
+        :error="errors.phone"
+      />
+    </div>
   </div>
 </template>
 

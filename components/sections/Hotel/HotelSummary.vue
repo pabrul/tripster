@@ -5,6 +5,7 @@
     <div class="flex flex-col md:flex-row">
       <div class="relative w-full md:w-48 h-48">
         <img
+          loading="lazy"
           :src="hotel?.image || defaultImage"
           :alt="hotel?.name"
           class="w-full h-full object-cover"

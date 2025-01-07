@@ -8,6 +8,7 @@ export interface Hotel {
   image?: string; // Tornando opcional
   large?: boolean; // Adicionando large
   popular: boolean;
+  maxGuests: number;
 }
 
 export interface HotelFeature {
