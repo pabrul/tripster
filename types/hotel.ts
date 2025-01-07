@@ -9,3 +9,8 @@ export interface Hotel {
   large?: boolean; // Adicionando large
   popular: boolean;
 }
+
+export interface HotelFeature {
+  name: string;
+  available: boolean;
+}
