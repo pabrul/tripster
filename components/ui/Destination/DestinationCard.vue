@@ -13,28 +13,24 @@
 
       <!-- Checkbox para comparação -->
       <div class="absolute top-4 right-4 z-10" @click.stop>
-        <button
-          :class="[
-            'flex items-center gap-2 px-3 py-2 rounded-full transition-all duration-300',
-            'backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5',
-            isSelected
-              ? 'bg-blue-500 text-white'
-              : 'bg-white/90 text-gray-700 hover:bg-white',
-            isCompareDisabled && !isSelected
-              ? 'opacity-50 cursor-not-allowed hover:transform-none'
-              : 'cursor-pointer',
-          ]"
-          @click="handleCompare"
+        <Button
+          :variant="isSelected ? 'primary' : 'secondary'"
+          :size="'md'"
+          :rounded="true"
           :disabled="isCompareDisabled && !isSelected"
+          @click="handleCompare"
+          class="flex items-center gap-2 transition-all duration-300 backdrop-blur-sm shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
         >
           <!-- Ícone -->
-          <Icon
-            :name="
-              isSelected ? 'heroicons:check-circle' : 'heroicons:plus-circle'
-            "
-            class="w-5 h-5"
-            :class="isSelected ? 'text-white' : 'text-blue-500'"
-          />
+          <template #icon>
+            <Icon
+              :name="
+                isSelected ? 'heroicons:check-circle' : 'heroicons:plus-circle'
+              "
+              class="w-5 h-5"
+              :class="isSelected ? 'text-white' : 'text-blue-500'"
+            />
+          </template>
 
           <!-- Texto -->
           <span class="text-sm font-medium whitespace-nowrap">
@@ -51,7 +47,7 @@
           >
             ({{ selectedHotels.length }}/3)
           </span>
-        </button>
+        </Button>
 
         <!-- Tooltip para disabled -->
         <div
@@ -63,7 +59,11 @@
       </div>
 
       <!-- Imagem do hotel -->
-      <img :src="image" :alt="name" class="w-full h-full object-cover" />
+      <img
+        :src="image"
+        :alt="`Imagem do hotel ${name}`"
+        class="w-full h-full object-cover"
+      />
 
       <!-- Informações do hotel -->
       <div class="absolute bottom-0 left-0 right-0 p-6">
@@ -92,6 +92,7 @@ import { computed } from "vue";
 import { storeToRefs } from "pinia";
 import { useRouter } from "vue-router";
 import { useCompareStore } from "~/stores/useCompareStore";
+import Button from "~/components/base/Button.vue";
 
 const props = defineProps({
   hotel: {
