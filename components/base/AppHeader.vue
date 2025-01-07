@@ -16,14 +16,14 @@
 
         <!-- Nav Menu -->
         <nav class="hidden md:flex items-center space-x-6">
-          <NuxtLink
+          <!-- <NuxtLink
             v-for="item in navigationItems"
             :key="item.path"
             :to="item.path"
             class="text-gray-600 hover:text-gray-900 font-medium"
           >
             {{ item.label }}
-          </NuxtLink>
+          </NuxtLink> -->
         </nav>
 
         <!-- Auth Buttons -->
@@ -74,7 +74,7 @@
       <!-- Mobile Menu -->
       <div v-show="isMenuOpen" class="md:hidden py-4">
         <nav class="flex flex-col space-y-4">
-          <NuxtLink
+          <!-- <NuxtLink
             v-for="item in navigationItems"
             :key="item.path"
             :to="item.path"
@@ -82,7 +82,7 @@
             @click="isMenuOpen = false"
           >
             {{ item.label }}
-          </NuxtLink>
+          </NuxtLink> -->
 
           <!-- Mobile Auth Buttons -->
           <div class="pt-4 space-y-2">

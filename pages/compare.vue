@@ -58,9 +58,6 @@ import type { HotelFeature } from "~/types/hotel";
 import Button from "~/components/base/Button.vue";
 import EmptyState from "~/components/base/EmptyState.vue";
 import CompareHotelCard from "~/components/ui/Compare/CompareHotelCard.vue";
-import HotelInfo from "~/components/ui/Compare/HotelInfo.vue";
-import HotelPricing from "~/components/ui/Compare/HotelPricing.vue";
-import HotelFeatures from "~/components/ui/Compare/HotelFeatures.vue";
 
 definePageMeta({
   middleware: ["auth"],
@@ -95,7 +92,7 @@ const removeHotel = (hotelId: number) => {
 };
 
 const bookHotel = (hotelId: number) => {
-  alertStore.showAlert("Booking feature coming soon!", "info");
+  router.push(`/hotel/${hotelId}/book`);
 };
 
 // Lifecycle hooks

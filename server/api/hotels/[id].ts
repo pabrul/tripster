@@ -1,6 +1,7 @@
-// server/api/hotels/index.ts
-export default defineEventHandler((event) => {
-  // Dados mockados dos hotéis
+// server/api/hotels/[id].ts
+export default defineEventHandler(async (event) => {
+  const id = parseInt(event.context.params?.id || "0");
+
   const hotels = [
     {
       id: 1,
@@ -257,19 +258,14 @@ export default defineEventHandler((event) => {
     },
   ];
 
-  // Pega os parâmetros da query
-  const query = getQuery(event);
-  const searchLocation = query.location?.toString().toLowerCase();
+  const hotel = hotels.find((h) => h.id === id);
 
-  // Se não houver parâmetros de busca, retorna todos os hotéis
-  if (!searchLocation) {
-    return hotels;
+  if (!hotel) {
+    throw createError({
+      statusCode: 404,
+      message: "Hotel not found",
+    });
   }
 
-  // Filtra os hotéis baseado na localização
-  return hotels.filter(
-    (hotel) =>
-      hotel.name.toLowerCase().includes(searchLocation) ||
-      hotel.location.toLowerCase().includes(searchLocation)
-  );
+  return hotel;
 });

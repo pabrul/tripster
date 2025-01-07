@@ -66,10 +66,18 @@
 
     <!-- Social Login -->
     <div class="grid grid-cols-2 gap-3">
-      <Button variant="outline" class="border border-gray-300">
+      <Button
+        variant="outline"
+        class="border border-gray-300"
+        @click="socialLogin('google')"
+      >
         <Icon name="logos:google-icon" class="w-4 h-4 mr-2" /> Google
       </Button>
-      <Button variant="outline" class="border border-gray-300">
+      <Button
+        variant="outline"
+        class="border border-gray-300"
+        @click="socialLogin('github')"
+      >
         <Icon name="logos:github-icon" class="w-4 h-4 mr-2" /> GitHub
       </Button>
     </div>
@@ -77,7 +85,7 @@
     <!-- Sign Up -->
     <div class="text-sm text-center text-gray-600 mt-6">
       Don't have an account?
-      <a href="#" class="text-blue-600">Sign up now</a>
+      <NuxtLink to="/register" class="underline"> Sign up Now </NuxtLink>
     </div>
   </form>
 </template>
@@ -87,6 +95,7 @@ import { ref, reactive } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "~/stores/auth";
 import { useAlertStore } from "~/stores/useAlertStore";
+import type { AuthResponse } from "~/types/user";
 import Button from "@/components/base/Button.vue";
 import Input from "@/components/base/Input.vue";
 
@@ -131,20 +140,21 @@ const validateForm = () => {
   return isValid;
 };
 
-// No LoginForm.vue, atualizar handleSubmit:
 const handleSubmit = async () => {
   if (!validateForm()) return;
 
   try {
     isLoading.value = true;
 
-    const response = await $fetch("/api/auth/users", {
+    const response = await $fetch<AuthResponse>("/api/auth/users", {
       method: "POST",
       body: {
         email: form.email,
         password: form.password,
       },
     });
+
+    if (!response) throw new Error("No response from server");
 
     authStore.login(response.user, response.token);
     alertStore.showAlert("Welcome back!", "success");

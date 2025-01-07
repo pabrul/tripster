@@ -1,9 +1,8 @@
 // server/api/auth/users.ts
-interface MockUser {
-  id: number;
-  name: string;
-  email: string;
-  password: string; // Em produção nunca armazenar senhas em texto puro!
+import type { User } from "~/types/user";
+
+interface MockUser extends User {
+  password: string;
 }
 
 export const mockUsers: MockUser[] = [
@@ -31,7 +30,6 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
   if (event.node.req.method === "POST") {
-    // Login
     const user = mockUsers.find(
       (u) => u.email === body.email && u.password === body.password
     );

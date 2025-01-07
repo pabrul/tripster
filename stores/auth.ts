@@ -1,6 +1,6 @@
-//stores/auth.ts
+// stores/auth.ts
 import { defineStore } from "pinia";
-import type { User } from "@/types/user";
+import type { User } from "~/types/user";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
