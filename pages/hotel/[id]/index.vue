@@ -49,12 +49,12 @@
                 class="flex flex-wrap items-center justify-between gap-4 p-6 bg-blue-50 rounded-xl"
               >
                 <div class="space-y-1">
-                  <p class="text-gray-600">Preço por noite</p>
+                  <p class="text-gray-600">Price per night</p>
                   <div class="flex items-baseline">
                     <span class="text-3xl font-bold text-blue-600"
                       >${{ hotel?.price }}</span
                     >
-                    <span class="ml-1 text-gray-600">/noite</span>
+                    <span class="ml-1 text-gray-600">/night</span>
                   </div>
                 </div>
                 <div class="flex items-center gap-3">
@@ -63,9 +63,9 @@
                     class="w-6 h-6 text-gray-600"
                   />
                   <div>
-                    <p class="text-sm text-gray-600">Capacidade</p>
+                    <p class="text-sm text-gray-600">Capacity</p>
                     <p class="font-medium">
-                      {{ hotel?.maxGuests || 2 }} hóspedes
+                      {{ hotel?.maxGuests || 2 }} guests
                     </p>
                   </div>
                 </div>
@@ -76,11 +76,10 @@
 
               <!-- Informações Adicionais -->
               <div class="space-y-4">
-                <h2 class="text-2xl font-semibold">Informações do Hotel</h2>
+                <h2 class="text-2xl font-semibold">Hotel Information</h2>
                 <p class="text-gray-600 leading-relaxed">
-                  Este hotel oferece uma experiência única, combinando conforto
-                  e localização privilegiada. Perfeito para viagens de negócios
-                  ou lazer.
+                  This hotel offers a unique experience, combining comfort and
+                  privileged location. Perfect for business trips or leisure.
                 </p>
               </div>
             </div>
@@ -89,7 +88,7 @@
             <div class="lg:col-span-1">
               <div class="sticky top-24 bg-blue-50 rounded-xl p-6 space-y-6">
                 <div class="space-y-4">
-                  <h3 class="text-lg font-semibold">Fazer Reserva</h3>
+                  <h3 class="text-lg font-semibold">Make Reservation</h3>
                   <div class="space-y-2">
                     <p class="flex items-center text-gray-600">
                       <Icon name="heroicons:clock" class="w-5 h-5 mr-2" />
@@ -113,9 +112,9 @@
 
                 <div class="text-center space-y-2">
                   <p class="text-sm text-gray-500">
-                    Sem taxa de cancelamento até 48h antes
+                    No cancellation fee up to 48 hours in advance
                   </p>
-                  <p class="text-sm text-gray-500">Confirmação imediata</p>
+                  <p class="text-sm text-gray-500">Immediate confirmation</p>
                 </div>
               </div>
             </div>
