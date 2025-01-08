@@ -4,6 +4,8 @@
 
 O Tripster é uma plataforma moderna de reservas hoteleiras desenvolvida como parte de um desafio técnico, focando em criar uma experiência intuitiva e eficiente para busca, comparação e reserva de hotéis. O projeto demonstra a implementação de boas práticas de desenvolvimento, arquitetura modular e padrões de projeto modernos.
 
+https://www.loom.com/share/0ad5d3e882dc44ca915869ddc0bcaaef?sid=2ffde986-86da-42af-a265-aee9f1d2376f
+
 ## ⭐ Principais Funcionalidades
 
 ### Sistema de Busca Inteligente
