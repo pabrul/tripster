@@ -7,7 +7,7 @@ export default defineConfig({
   plugins: [vue()],
   test: {
     globals: true,
-    environment: "jsdom", // Ambiente necessário para testes com DOM
+    environment: "jsdom",
     setupFiles: "./test/setup.ts",
     coverage: {
       provider: "istanbul",
@@ -19,6 +19,7 @@ export default defineConfig({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./"),
+      "~": path.resolve(__dirname, "./"),
     },
   },
 });
