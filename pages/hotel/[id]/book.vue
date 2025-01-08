@@ -1,3 +1,4 @@
+// pages/hotel/[id]/book.vue
 <template>
   <div class="min-h-screen p-8">
     <div class="max-w-3xl mx-auto">
@@ -40,6 +41,7 @@ import { ref, reactive, computed } from "vue";
 import { useRouter, useRoute } from "vue-router";
 import { useAlertStore } from "~/stores/useAlertStore";
 import { useAuthStore } from "~/stores/auth";
+import { useBookingStore } from "~/stores/useBookingStore";
 import { useBooking } from "~/composables/useBooking";
 import type { Hotel, HotelFeature } from "~/types/hotel";
 import type { BookingForm, BookingErrors } from "~/types/booking";
@@ -56,6 +58,7 @@ const router = useRouter();
 const route = useRoute();
 const alertStore = useAlertStore();
 const authStore = useAuthStore();
+const bookingStore = useBookingStore();
 const { validateForm, calculateNights } = useBooking();
 
 const hotel = ref<Hotel | null>(null);
@@ -68,18 +71,18 @@ const available = ref<HotelFeature>({
 });
 
 const form = reactive<BookingForm>({
-  firstName: authStore.user?.name?.split(" ")[0] || "",
-  lastName: authStore.user?.name?.split(" ").slice(1).join(" ") || "",
-  email: authStore.user?.email || "",
-  phone: "",
-  checkIn: "",
-  checkOut: "",
-  guests: 1,
+  firstName: "John",
+  lastName: "Doe",
+  email: "john@example.com",
+  phone: "1234567890",
+  checkIn: "2025-01-15",
+  checkOut: "2025-01-20",
+  guests: 2,
   rooms: 1,
-  cardNumber: "",
-  expMonth: "",
-  expYear: "",
-  cvv: "",
+  cardNumber: "4111111111111111",
+  expMonth: "12",
+  expYear: "2025",
+  cvv: "123",
 });
 
 const errors = reactive<BookingErrors>({});
@@ -112,7 +115,12 @@ const handleBooking = async () => {
 
   try {
     isLoading.value = true;
-    // API call would go here
+    await bookingStore.createBooking({
+      ...form,
+      hotelId: hotel.value?.id,
+      totalPrice: totalPrice.value,
+      nights: numberOfNights.value,
+    });
     alertStore.showAlert("Booking confirmed successfully!", "success");
     router.push("/bookings");
   } catch (error) {
