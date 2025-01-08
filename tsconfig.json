@@ -3,9 +3,11 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "baseUrl": ".",
+    "types": ["@nuxt/types"],
     "paths": {
       "@/*": ["./*"],
-      "~/*": ["./*"]
+      "~/*": ["./*"],
+      "#app": ["./.nuxt/types/app/index"]
     },
   }
 }

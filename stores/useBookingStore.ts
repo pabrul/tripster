@@ -10,7 +10,7 @@ export const useBookingStore = defineStore("booking", () => {
   const fetchUserBookings = async () => {
     isLoading.value = true;
     try {
-      bookings.value = await $fetch("/api/bookings");
+      bookings.value = await $fetch<BookingWithDetails[]>("/api/bookings");
     } catch (error) {
       console.error(error);
     } finally {
@@ -21,7 +21,7 @@ export const useBookingStore = defineStore("booking", () => {
   const createBooking = async (bookingData: any) => {
     isLoading.value = true;
     try {
-      const newBooking = await $fetch("/api/bookings", {
+      const newBooking = await $fetch<BookingWithDetails>("/api/bookings", {
         method: "POST",
         body: bookingData,
       });
