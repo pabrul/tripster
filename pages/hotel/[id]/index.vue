@@ -72,29 +72,7 @@
               </div>
 
               <!-- Amenidades -->
-              <div class="space-y-4">
-                <h2 class="text-2xl font-semibold">Amenidades</h2>
-                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                  <div
-                    v-for="feature in hotelFeatures"
-                    :key="feature.name"
-                    class="flex items-center p-4 bg-blue-50 rounded-lg"
-                  >
-                    <Icon
-                      :name="
-                        feature.available
-                          ? 'heroicons:check-circle'
-                          : 'heroicons:x-circle'
-                      "
-                      class="w-5 h-5"
-                      :class="
-                        feature.available ? 'text-green-500' : 'text-red-500'
-                      "
-                    />
-                    <span class="text-gray-600 ml-2">{{ feature.name }}</span>
-                  </div>
-                </div>
-              </div>
+              <HotelFeatures :features="hotelFeatures" class="border-t" />
 
               <!-- Informações Adicionais -->
               <div class="space-y-4">
@@ -153,6 +131,10 @@ import { ref, onMounted } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import type { Hotel } from "~/types/hotel";
 import Button from "~/components/base/Button.vue";
+
+definePageMeta({
+  middleware: ["auth"],
+});
 
 const route = useRoute();
 const router = useRouter();

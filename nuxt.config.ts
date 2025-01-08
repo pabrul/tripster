@@ -26,4 +26,5 @@ export default defineNuxtConfig({
     },
     display: "swap",
   },
+  extends: "./base",
 });

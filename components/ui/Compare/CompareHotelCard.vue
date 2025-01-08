@@ -38,7 +38,6 @@
 import type { Hotel, HotelFeature } from "~/types/hotel";
 import HotelInfo from "./HotelInfo.vue";
 import HotelPricing from "./HotelPricing.vue";
-import HotelFeatures from "./HotelFeatures.vue";
 import Button from "~/components/base/Button.vue";
 
 interface Props {

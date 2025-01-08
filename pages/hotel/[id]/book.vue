@@ -54,6 +54,10 @@ import StayDetails from "~/components/sections/Booking/StayDetails.vue";
 import PaymentForm from "~/components/sections/Booking/PaymentForm.vue";
 import PriceSummary from "~/components/sections/Booking/PriceSummary.vue";
 
+definePageMeta({
+  middleware: ["auth"],
+});
+
 const router = useRouter();
 const route = useRoute();
 const alertStore = useAlertStore();
