@@ -14,12 +14,11 @@ https://www.loom.com/share/0ad5d3e882dc44ca915869ddc0bcaaef?sid=2ffde986-86da-42
   - Filtros dinâmicos por destino
   - Seleção de datas com validação inteligente
   - Configuração flexível de quartos e hóspedes
-  - Resultados em tempo real
 
 ### Comparador de Hotéis
 
 - **Análise Lado a Lado**
-  - Comparação simultânea de até 4 hotéis
+  - Comparação simultânea de até 3 hotéis
   - Destaque de diferenciais
   - Filtros personalizáveis
   - Análise detalhada de preços e condições
@@ -28,16 +27,12 @@ https://www.loom.com/share/0ad5d3e882dc44ca915869ddc0bcaaef?sid=2ffde986-86da-42
 
 - **Processo Otimizado**
   - Formulário intuitivo de reserva
-  - Múltiplas opções de pagamento
   - Confirmação instantânea
-  - Histórico de reservas
 
 ### Sistema de Notificações
 
 - **Atualizações em Tempo Real**
   - Status da reserva
-  - Confirmações por email
-  - Alertas de check-in/check-out
   - Lembretes importantes
 
 ## 🛠 Arquitetura e Tecnologias
@@ -60,20 +55,16 @@ https://www.loom.com/share/0ad5d3e882dc44ca915869ddc0bcaaef?sid=2ffde986-86da-42
 - **SOLID**
 
   - Princípios de responsabilidade única
-  - Inversão de dependência
   - Interfaces bem definidas
 
 - **Clean Architecture**
   - Separação de responsabilidades
   - Camadas bem definidas
-  - Dependências unidirecionais
 
 ### Performance
 
 - **Otimizações**
   - Lazy loading de componentes
-  - Code splitting automático
-  - Cache eficiente
   - Prefetching inteligente
 
 ### SEO
@@ -180,12 +171,6 @@ O projeto utiliza GitHub Actions para:
 - **Qualidade de Código**
   - Lint e formatação
   - Testes automatizados
-
-## 📚 Documentação Adicional
-
-- [Guia de Contribuição](CONTRIBUTING.md)
-- [Documentação de API](API.md)
-- [Guia de Estilo](STYLE_GUIDE.md)
 
 ## 👥 Time
 
