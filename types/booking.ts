@@ -17,7 +17,9 @@ export interface BookingForm {
 }
 
 export interface BookingErrors
-  extends Partial<Record<keyof BookingForm, string>> {}
+  extends Partial<Record<keyof BookingForm, string>> {
+  general?: string; // Erro geral
+}
 
 export interface Booking {
   id: number;
