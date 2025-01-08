@@ -32,8 +32,9 @@
       <!-- Sticky Compare Bar -->
       <CompareBar
         :selected-hotels="selectedHotels"
-        :default-image="imageUrl"
         @compare="navigateToCompare"
+        :default-image="imageUrl"
+        @reset="resetSelectedHotels"
       />
     </div>
 
@@ -83,6 +84,10 @@ const hotelStore = useHotelStore();
 const compareStore = useCompareStore();
 
 const { selectedHotels } = storeToRefs(compareStore);
+
+const resetSelectedHotels = () => {
+  selectedHotels.value = [];
+};
 
 const {
   displayedHotels,

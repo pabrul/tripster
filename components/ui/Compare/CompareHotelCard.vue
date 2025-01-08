@@ -3,21 +3,21 @@
     class="bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
   >
     <!-- Hotel Image Section -->
-    <div class="relative h-48 group">
+    <div class="relative h-48 group overflow-hidden">
       <img
         :src="hotel.image || defaultImage"
         :alt="hotel.name"
         class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
       />
       <div
-        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+        class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
       />
-      <button
+      <Button
         @click="$emit('remove', hotel.id)"
-        class="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+        class="absolute top-4 right-4 p-2 bg-white/90 backdrop-blur-sm rounded-full hover:bg-white transition-all duration-300 hover:shadow-lg transform hover:scale-105 z-10"
       >
         <Icon name="heroicons:x-mark" class="w-5 h-5 text-gray-600" />
-      </button>
+      </Button>
     </div>
 
     <!-- Hotel Info Section -->

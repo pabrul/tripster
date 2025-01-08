@@ -1,4 +1,3 @@
-// components/ui/Compare/CompareBar.vue
 <template>
   <div
     v-if="selectedHotels.length > 0"
@@ -52,7 +51,7 @@
               <Button
                 @click="handleCompare"
                 variant="primary"
-                size="lg"
+                size="md"
                 rounded
                 class="shadow-md hover:shadow-lg transition-shadow"
               >
@@ -63,6 +62,19 @@
                   />
                 </template>
                 Compare {{ selectedHotels.length }} Hotels
+              </Button>
+              <!-- Reset Button -->
+              <Button
+                @click="handleReset"
+                variant="secondary"
+                size="md"
+                rounded
+                class="shadow-md hover:shadow-lg transition-shadow"
+              >
+                <template #icon>
+                  <Icon name="heroicons:x-circle" class="w-6 h-6 mr-2" />
+                </template>
+                Clear
               </Button>
             </div>
           </div>
@@ -92,9 +104,14 @@ const props = withDefaults(defineProps<Props>(), {
 
 const emit = defineEmits<{
   (e: "compare", selectedHotels: Hotel[]): void;
+  (e: "reset"): void; // Evento para resetar
 }>();
 
 const handleCompare = () => {
   emit("compare", props.selectedHotels);
+};
+
+const handleReset = () => {
+  emit("reset"); // Emitindo o evento de reset
 };
 </script>

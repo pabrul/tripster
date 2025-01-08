@@ -1,6 +1,8 @@
-// components/ui/Search/SearchForm.vue
 <template>
-  <div class="bg-white rounded-full shadow-lg p-2 flex items-center gap-4">
+  <form
+    @submit.prevent="handleSearch"
+    class="bg-white rounded-full shadow-lg p-2 flex items-center gap-4"
+  >
     <!-- Campo de localização -->
     <SearchField
       v-model="location"
@@ -30,7 +32,7 @@
     />
 
     <!-- Campo de número de hóspedes -->
-    <div class="flex-1 px-6">
+    <div class="flex-1 px-3">
       <label class="block text-sm text-gray-500">Guests</label>
       <Select
         v-model="guests"
@@ -46,29 +48,14 @@
 
     <!-- Botão de pesquisa -->
     <Button
-      @click="handleSearch"
+      type="submit"
       :disabled="isLoading"
       variant="primary"
       rounded
-      size="lg"
+      size="md"
       class="!bg-blue-500 hover:!bg-blue-600"
     >
-      <template #icon>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M14 5l7 7m0 0l-7 7m7-7H3"
-          />
-        </svg>
-      </template>
+      <Icon name="heroicons:arrow-right" class="w-6 h-6" />
     </Button>
 
     <!-- Botão de reset -->
@@ -77,12 +64,13 @@
       :disabled="isLoading"
       variant="secondary"
       rounded
-      size="lg"
+      size="md"
       class="ml-2"
     >
+      <Icon name="heroicons:x-circle" class="w-6 h-6 mr-2" />
       Reset
     </Button>
-  </div>
+  </form>
 </template>
 
 <script setup>
