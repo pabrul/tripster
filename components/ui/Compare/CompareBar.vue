@@ -4,7 +4,7 @@
     class="fixed bottom-0 left-0 right-0 z-50 transform transition-all duration-300 ease-in-out"
   >
     <div class="bg-white/95 backdrop-blur-sm border-t shadow-lg">
-      <div class="max-w-7xl mx-auto p-4">
+      <div class="max-w-7xl md:w-auto mx-auto p-4">
         <div class="flex items-center justify-between">
           <!-- Left Side: Selected Hotels Preview -->
           <div class="flex items-center gap-4">
@@ -22,8 +22,10 @@
               </div>
             </div>
             <div class="ml-2">
-              <h4 class="font-semibold text-gray-900">Selected Hotels</h4>
-              <p class="text-sm text-gray-600">
+              <h4 class="font-semibold text-gray-900 md:text-lg text-sm">
+                Selected Hotels
+              </h4>
+              <p class="text-gray-600 md:text-lg text-sm">
                 {{ selectedHotels.length }}/{{ maxSelections }} hotels selected
               </p>
             </div>
@@ -44,7 +46,9 @@
                   class="w-5 h-5 mr-2"
                 />
               </template>
-              Select at least {{ minSelections }} hotels
+              <span class="md:text-xl text-sm">
+                Select at least {{ minSelections }} hotels
+              </span>
             </Button>
 
             <div v-else class="flex items-center gap-2">
@@ -61,7 +65,9 @@
                     class="w-5 h-5 mr-2"
                   />
                 </template>
-                Compare {{ selectedHotels.length }} Hotels
+                <span class="md:text-lg text-sm">
+                  Compare {{ selectedHotels.length }} Hotels
+                </span>
               </Button>
               <!-- Reset Button -->
               <Button
@@ -74,7 +80,7 @@
                 <template #icon>
                   <Icon name="heroicons:x-circle" class="w-6 h-6 mr-2" />
                 </template>
-                Clear
+                <span class="md:text-lg text-sm">Clear</span>
               </Button>
             </div>
           </div>
