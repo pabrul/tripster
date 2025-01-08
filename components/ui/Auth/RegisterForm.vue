@@ -70,6 +70,7 @@ import { useAuthStore } from "~/stores/auth";
 import { useAlertStore } from "~/stores/useAlertStore";
 import Button from "@/components/base/Button.vue";
 import Input from "@/components/base/Input.vue";
+import type { AuthResponse } from "~/types/user";
 
 const router = useRouter();
 const authStore = useAuthStore();
@@ -93,31 +94,19 @@ const errors = reactive({
 const validateForm = () => {
   let isValid = true;
 
-  // Name validation
-  if (!form.name) {
-    errors.name = "Name is required";
-    isValid = false;
-  }
+  errors.name = !form.name ? "Name is required" : "";
+  errors.email = !form.email
+    ? "Email is required"
+    : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
+    ? "Please enter a valid email"
+    : "";
+  errors.password = !form.password
+    ? "Password is required"
+    : form.password.length < 6
+    ? "Password must be at least 6 characters"
+    : "";
 
-  // Email validation
-  if (!form.email) {
-    errors.email = "Email is required";
-    isValid = false;
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
-    errors.email = "Please enter a valid email";
-    isValid = false;
-  }
-
-  // Password validation
-  if (!form.password) {
-    errors.password = "Password is required";
-    isValid = false;
-  } else if (form.password.length < 6) {
-    errors.password = "Password must be at least 6 characters";
-    isValid = false;
-  }
-
-  return isValid;
+  return isValid && !errors.name && !errors.email && !errors.password;
 };
 
 const handleSubmit = async () => {
@@ -126,16 +115,20 @@ const handleSubmit = async () => {
   try {
     isLoading.value = true;
 
-    const response = await $fetch("/api/auth/users", {
+    const { data, error } = await useFetch<AuthResponse>("/api/auth/users", {
       method: "PUT",
       body: form,
     });
 
-    authStore.login(response.user, response.token);
+    if (error.value || !data.value) {
+      throw new Error(error.value?.message || "Registration failed");
+    }
+
+    authStore.login(data.value.user, data.value.token);
     alertStore.showAlert("Account created successfully!", "success");
     router.push("/");
-  } catch (error: any) {
-    alertStore.showAlert(error.message || "Registration failed", "error");
+  } catch (err: any) {
+    alertStore.showAlert(err.message || "Registration failed", "error");
   } finally {
     isLoading.value = false;
   }

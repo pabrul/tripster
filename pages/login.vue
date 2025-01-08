@@ -74,8 +74,39 @@
 <script setup lang="ts">
 import LoginForm from "~/components/ui/Auth/LoginForm.vue";
 
-// Define o layout de autenticação
 definePageMeta({
+  title: "Login - Tripster",
+  robots: "noindex, nofollow",
   layout: "auth",
+});
+
+useHead({
+  title: "Login - Tripster",
+  meta: [
+    // Descrição básica
+    {
+      name: "description",
+      content:
+        "Login to your Tripster account to access your travel bookings and preferences",
+    },
+
+    // Prevenção de cache para página de login
+    {
+      "http-equiv": "Cache-Control",
+      content: "no-cache, no-store, must-revalidate",
+    },
+    { "http-equiv": "Pragma", content: "no-cache" },
+    { "http-equiv": "Expires", content: "0" },
+
+    // Segurança
+    { name: "referrer", content: "no-referrer-when-downgrade" },
+
+    // Open Graph básico
+    { property: "og:title", content: "Login - Tripster" },
+    { property: "og:type", content: "website" },
+
+    // Viewport
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+  ],
 });
 </script>

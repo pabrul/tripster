@@ -1,4 +1,3 @@
-// components/base/AppHeader.vue
 <template>
   <header
     class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm"
@@ -16,14 +15,13 @@
 
         <!-- Nav Menu -->
         <nav class="hidden md:flex items-center space-x-6">
-          <!-- <NuxtLink
-            v-for="item in navigationItems"
-            :key="item.path"
-            :to="item.path"
+          <NuxtLink
+            v-if="isAuthenticated"
+            to="/bookings"
             class="text-gray-600 hover:text-gray-900 font-medium"
           >
-            {{ item.label }}
-          </NuxtLink> -->
+            Bookings
+          </NuxtLink>
         </nav>
 
         <!-- Auth Buttons -->
@@ -63,26 +61,25 @@
         </div>
 
         <!-- Mobile Menu Button -->
-        <button class="md:hidden p-2" @click="isMenuOpen = !isMenuOpen">
+        <Button class="md:hidden p-2" @click="isMenuOpen = !isMenuOpen">
           <Icon
             :name="isMenuOpen ? 'heroicons:x-mark' : 'heroicons:bars-3'"
             class="w-6 h-6"
           />
-        </button>
+        </Button>
       </div>
 
       <!-- Mobile Menu -->
       <div v-show="isMenuOpen" class="md:hidden py-4">
         <nav class="flex flex-col space-y-4">
-          <!-- <NuxtLink
-            v-for="item in navigationItems"
-            :key="item.path"
-            :to="item.path"
+          <NuxtLink
+            v-if="isAuthenticated"
+            to="/bookings"
             class="text-gray-600 hover:text-gray-900"
             @click="isMenuOpen = false"
           >
-            {{ item.label }}
-          </NuxtLink> -->
+            Bookings
+          </NuxtLink>
 
           <!-- Mobile Auth Buttons -->
           <div class="pt-4 space-y-2">
@@ -91,9 +88,9 @@
                 <Button variant="ghost" size="sm" class="w-full">Log in</Button>
               </NuxtLink>
               <NuxtLink to="/register" class="block">
-                <Button variant="primary" size="sm" class="w-full"
-                  >Sign up</Button
-                >
+                <Button variant="primary" size="sm" class="w-full">
+                  Sign up
+                </Button>
               </NuxtLink>
             </template>
             <template v-else>

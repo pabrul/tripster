@@ -132,16 +132,30 @@ import { useRoute, useRouter } from "vue-router";
 import type { Hotel } from "~/types/hotel";
 import Button from "~/components/base/Button.vue";
 
-definePageMeta({
-  middleware: ["auth"],
-});
-
 const route = useRoute();
 const router = useRouter();
 const hotel = ref<Hotel | null>(null);
 const loading = ref(true);
 const error = ref<string | null>(null);
 const defaultImageUrl = "https://via.placeholder.com/800x600";
+
+definePageMeta({
+  middleware: ["auth"],
+  title: `${hotel.value?.name} - Tripster`,
+});
+
+useHead({
+  title: `${hotel.value?.name || "Hotel Details"} | Tripster`,
+  meta: [
+    {
+      name: "description",
+      content: `${
+        hotel.value?.name ||
+        "View hotel details, photos, amenities, and guest reviews. Book your stay at the best rates."
+      }`,
+    },
+  ],
+});
 
 const hotelFeatures = ref([
   { name: "Free WiFi", available: true },

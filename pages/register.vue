@@ -42,5 +42,58 @@ import RegisterForm from "~/components/ui/Auth/RegisterForm.vue";
 
 definePageMeta({
   layout: "auth",
+  title: "Join Tripster - Create Your Account",
+  robots: "noindex, nofollow",
+});
+
+useHead({
+  title: "Join Tripster - Create Your Account",
+  meta: [
+    // Descrição básica e atrativa
+    {
+      name: "description",
+      content:
+        "Create your free Tripster account today. Join our community of travelers, unlock exclusive deals, and start planning your next adventure.",
+    },
+
+    // Prevenção de cache
+    {
+      "http-equiv": "Cache-Control",
+      content: "no-cache, no-store, must-revalidate",
+    },
+    { "http-equiv": "Pragma", content: "no-cache" },
+    { "http-equiv": "Expires", content: "0" },
+
+    // Segurança
+    { name: "referrer", content: "no-referrer-when-downgrade" },
+
+    // Open Graph
+    { property: "og:title", content: "Join Tripster - Create Your Account" },
+    {
+      property: "og:description",
+      content:
+        "Join our community of travelers. Create your free account today and start planning your next adventure!",
+    },
+    { property: "og:type", content: "website" },
+
+    // Twitter Card
+    { name: "twitter:title", content: "Join Tripster - Create Your Account" },
+    {
+      name: "twitter:description",
+      content:
+        "Join our community of travelers. Create your free account today!",
+    },
+    { name: "twitter:card", content: "summary" },
+
+    // Viewport
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+
+    // Keywords relevantes
+    {
+      name: "keywords",
+      content:
+        "travel account, signup, register, join tripster, travel planning, travel community",
+    },
+  ],
 });
 </script>

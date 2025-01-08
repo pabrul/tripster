@@ -56,6 +56,32 @@ import PriceSummary from "~/components/sections/Booking/PriceSummary.vue";
 
 definePageMeta({
   middleware: ["auth"],
+  title: "Complete Your Booking - Tripster",
+});
+
+useHead({
+  title: "Complete Your Booking - Tripster",
+  meta: [
+    // Descrição básica
+    {
+      name: "description",
+      content:
+        "Complete your hotel booking with Tripster. Secure checkout and best price guarantee.",
+    },
+
+    // Prevenção de cache para dados sensíveis
+    {
+      "http-equiv": "Cache-Control",
+      content: "no-cache, no-store, must-revalidate",
+    },
+    { "http-equiv": "Expires", content: "0" },
+
+    // Não indexar página de checkout
+    { name: "robots", content: "noindex, nofollow" },
+
+    // Viewport para responsividade
+    { name: "viewport", content: "width=device-width, initial-scale=1" },
+  ],
 });
 
 const router = useRouter();

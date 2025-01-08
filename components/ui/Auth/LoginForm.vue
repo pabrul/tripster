@@ -146,7 +146,7 @@ const handleSubmit = async () => {
   try {
     isLoading.value = true;
 
-    const response = await $fetch<AuthResponse>("/api/auth/users", {
+    const { data, error } = await useFetch<AuthResponse>("/api/auth/users", {
       method: "POST",
       body: {
         email: form.email,
@@ -154,15 +154,17 @@ const handleSubmit = async () => {
       },
     });
 
-    if (!response) throw new Error("No response from server");
+    if (error.value || !data.value) {
+      throw new Error("Invalid credentials");
+    }
 
-    authStore.login(response.user, response.token);
+    authStore.login(data.value.user, data.value.token);
     alertStore.showAlert("Welcome back!", "success");
 
     const redirect = router.currentRoute.value.query.redirect as string;
     router.push(redirect || "/");
-  } catch (error) {
-    alertStore.showAlert("Invalid credentials", "error");
+  } catch (err) {
+    alertStore.showAlert("An error occurred", "error");
   } finally {
     isLoading.value = false;
   }

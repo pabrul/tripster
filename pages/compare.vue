@@ -61,6 +61,33 @@ import CompareHotelCard from "~/components/ui/Compare/CompareHotelCard.vue";
 
 definePageMeta({
   middleware: ["auth"],
+  title: "Compare Hotels - Find Your Perfect Stay | Tripster",
+});
+
+useHead({
+  title: "Compare Hotels - Find Your Perfect Stay | Tripster",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Compare hotel prices, amenities, and reviews side by side. Make informed decisions and find the best hotel deals for your stay.",
+    },
+    // Open Graph
+    { property: "og:title", content: "Compare Hotels on Tripster" },
+    { property: "og:type", content: "website" },
+    {
+      property: "og:description",
+      content:
+        "Compare prices, amenities, and reviews. Find the perfect hotel for your trip.",
+    },
+    // Keywords
+    {
+      name: "keywords",
+      content:
+        "hotel comparison, compare hotels, hotel deals, hotel prices, hotel reviews, hotel amenities",
+    },
+    { name: "robots", content: "index, follow" },
+  ],
 });
 
 // Setup do router e stores

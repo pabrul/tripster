@@ -16,3 +16,8 @@
 .absolute {
   @apply transition-opacity duration-200;
 }
+
+.router-link-active,
+.router-link-exact-active {
+  @apply text-blue-600 font-bold;
+}
