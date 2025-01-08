@@ -5,10 +5,12 @@ export interface Hotel {
   location: string;
   price: number;
   rating: number;
-  image?: string; // Tornando opcional
-  large?: boolean; // Adicionando large
+  image?: string;
+  large?: boolean;
   popular: boolean;
   maxGuests: number;
+  checkIn: string;
+  checkOut: string;
 }
 
 export interface HotelFeature {
