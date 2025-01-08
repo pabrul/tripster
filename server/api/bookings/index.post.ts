@@ -1,5 +1,6 @@
-// server/api/bookings/index.ts
+// server/api/bookings/index.post.ts
 import type { BookingWithDetails } from "~/types/booking";
+import { bookings } from "../../data/bookings";
 import { hotels } from "../../data/hotels";
 
 export default defineEventHandler(async (event) => {
@@ -7,7 +8,7 @@ export default defineEventHandler(async (event) => {
   const booking: BookingWithDetails = {
     id: Date.now(),
     hotelId: body.hotelId,
-    userId: 1, // Usar authStore.user.id
+    userId: 1,
     checkIn: body.checkIn,
     checkOut: body.checkOut,
     guests: body.guests,
@@ -17,11 +18,11 @@ export default defineEventHandler(async (event) => {
     email: body.email,
     phone: body.phone,
     totalPrice: body.totalPrice,
-    paymentStatus: "paid",
-    status: "upcoming",
+    paymentStatus: "paid" as const,
+    status: "upcoming" as const,
     nights: body.nights,
     hotel: hotels.find((h) => h.id === body.hotelId),
   };
-
+  bookings.push(booking);
   return booking;
 });
