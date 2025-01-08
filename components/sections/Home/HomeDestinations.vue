@@ -11,7 +11,10 @@
     </div>
 
     <!-- Exibição de hotéis -->
-    <div v-else-if="displayedHotels?.length" class="grid grid-cols-12 gap-4">
+    <div
+      v-else-if="displayedHotels?.length"
+      class="grid grid-cols-3 md:grid-cols-12 gap-4"
+    >
       <div
         v-for="hotel in displayedHotels"
         :key="hotel.id"

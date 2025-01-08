@@ -12,7 +12,9 @@
         <p class="text-lg">{{ subtitle }}</p>
       </div>
     </div>
-    <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[90%]">
+    <div
+      class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-[90%] z-50"
+    >
       <SearchForm />
     </div>
   </div>

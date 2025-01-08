@@ -1,6 +1,7 @@
 // components/ui/Destination/DestinationCard.vue
 <template>
-  <div class="relative group">
+  <div class="relative group z-10">
+    <!-- Remova z-index alto -->
     <div
       class="card relative rounded-2xl overflow-hidden transition-transform duration-300 group-hover:scale-[1.02]"
       :class="{ 'h-80': large, 'h-64': !large }"
@@ -143,6 +144,7 @@ const navigateToHotel = () => {
 <style scoped>
 .card {
   @apply cursor-pointer shadow-lg;
+  z-index: 1;
 }
 
 /* Animação suave para o tooltip */
